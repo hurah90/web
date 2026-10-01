@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анкет</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+
+<header class="page-header">
+  <h1 class="page-title">Анкет</h1>
+  <p class="page-subtitle">Бүх талбарыг бөглөнө үү</p>
+</header>
+
+<main class="page-main">
+  <form class="card" action="#" method="post" novalidate>
+
+    <!-- position: absolute жишээ #1: badge -->
+    <span class="badge">Шинэ</span>
+
+    <fieldset class="section">
+      <legend class="section-title">Хувийн мэдээлэл</legend>
+
+      <div class="field">
+        <label class="field-label" for="fullname">Нэр</label>
+        <input class="field-input" type="text" id="fullname" name="fullname" required minlength="2" placeholder="Хурах-Эрдэнэ">
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="email">Имэйл</label>
+        <input class="field-input" type="email" id="email" name="email" required placeholder="name@gmail.com">
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="password">
+          Нууц үг
+          <!-- position: absolute жишээ #2: tooltip -->
+          <span class="tooltip" tabindex="0">?
+            <span class="tooltip-text">Хамгийн багадаа 8 тэмдэгт, үсэг ба тоо хослуулсан байх</span>
+          </span>
+        </label>
+        <input class="field-input" type="password" id="password" name="password" required minlength="8"
+               pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+               title="Хамгийн багадаа 8 тэмдэгт, үсэг болон тоо агуулсан байх ёстой">
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="birthdate">Төрсөн огноо</label>
+        <input class="field-input" type="date" id="birthdate" name="birthdate" required>
+      </div>
+    </fieldset>
+
+    <fieldset class="section">
+      <legend class="section-title">Хүйс</legend>
+      <div class="choice-group" role="radiogroup" aria-label="Хүйс">
+        <label class="choice" for="gender-male">
+          <input type="radio" id="gender-male" name="gender" value="male" required>
+          Эрэгтэй
+        </label>
+        <label class="choice" for="gender-female">
+          <input type="radio" id="gender-female" name="gender" value="female">
+          Эмэгтэй
+        </label>
+        <label class="choice" for="gender-other">
+          <input type="radio" id="gender-other" name="gender" value="other">
+          Бусад
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="section">
+      <legend class="section-title">Сургууль</legend>
+      <div class="choice-group">
+        <label class="choice" for="school-must">
+          <input type="checkbox" id="school-must" name="school" value="must">
+          MUST
+        </label>
+        <label class="choice" for="school-ufe">
+          <input type="checkbox" id="school-ufe" name="school" value="ufe">
+          UFE
+        </label>
+        <label class="choice" for="school-num">
+          <input type="checkbox" id="school-num" name="school" value="num">
+          NUM
+        </label>
+        <label class="choice" for="school-muls">
+          <input type="checkbox" id="school-muls" name="school" value="muls">
+          MULS
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="section">
+      <legend class="section-title">Миний сонирхол</legend>
+      <ul class="interest-list">
+        <li>Спорт</li>
+        <li>Хөгжим</li>
+        <li>Кино</li>
+      </ul>
+    </fieldset>
+
+    <fieldset class="section">
+      <legend class="section-title">Дүн</legend>
+      <table class="grades">
+        <tr>
+          <th>ITM.212</th>
+          <th>ITM.128</th>
+          <th>ITA.361</th>
+        </tr>
+        <tr>
+          <td>89</td>
+          <td>69</td>
+          <td>67</td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <fieldset class="section">
+      <legend class="section-title">Нэмэлт мэдээлэл</legend>
+      <div class="field">
+        <label class="field-label" for="country">Улс</label>
+        <select class="field-input" id="country" name="country" required>
+          <option value="" disabled selected>-- Улс сонгоно уу --</option>
+          <option value="mn">Монгол</option>
+          <option value="cn">Хятад</option>
+          <option value="ru">Орос</option>
+          <option value="kr">Өмнөд Солонгос</option>
+          <option value="kp">Хойд Солонгос</option>
+          <option value="de">Герман</option>
+          <option value="jp">Япон</option>
+          <option value="su">USSR</option>
+          <option value="other">Бусад</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <button class="btn btn-primary" type="submit">Бүртгүүлэх</button>
+  </form>
+</main>
+
+<footer class="page-footer">© 2026 Вэб программчлал — Лаб №2</footer>
+
+</body>
+</html>
