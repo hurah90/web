@@ -1,6 +1,6 @@
 :root{
-  --bg:#0e1621;
-  --panel:#162231;
+  --bg:#000000;
+  --panel:#2f1ca9ae;
   --field:#0b121b;
   --border:#2a3b50;
   --text:#e8eef5;
@@ -146,17 +146,8 @@
   font-size:.85rem;
 }
 
-.badge{
-  position:absolute;
-  top:-12px;
-  right:20px;
-  padding:4px 12px;
-  border-radius:999px;
-  background:var(--badge);
-  color:#2b1900;
-  font-size:.75rem;
-  font-weight:600;
-}
+
+
 
 .tooltip{
   position:relative;
