@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== Хуудасны үндсэн layout: CSS Grid ===== */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-areas:
+    "header  header"
+    "content sidebar"
+    "footer  footer";
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.site-header  { grid-area: header; }
+.content      { grid-area: content; }
+.sidebar      { grid-area: sidebar; }
+.site-footer  { grid-area: footer; }
+
+/* ===== Header + Navigation: Flexbox ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 28px;
+  background: #0f766e;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.brand p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-nav a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Main content: CSS Grid (3 багана) ===== */
+.content h2 {
+  margin-bottom: 16px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img {
+  height: 130px;
+}
+
+.img-1 { background: linear-gradient(135deg, #38bdf8, #0369a1); }
+.img-2 { background: linear-gradient(135deg, #fbbf24, #b45309); }
+.img-3 { background: linear-gradient(135deg, #a3e635, #4d7c0f); }
+.img-4 { background: linear-gradient(135deg, #34d399, #047857); }
+.img-5 { background: linear-gradient(135deg, #cbd5e1, #475569); }
+.img-6 { background: linear-gradient(135deg, #f472b6, #9d174d); }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  padding: 16px;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.price {
+  font-weight: bold;
+  color: #0f766e;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.widget {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.widget h3 {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #0f766e;
+}
+
+.widget li {
+  padding: 6px 0;
+}
+
+.widget a:hover {
+  color: #0f766e;
+}
+
+/* ===== Footer: Flexbox ===== */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 28px;
+  background: #1f2937;
+  color: #d1d5db;
+  border-radius: 12px;
+}
+
+.site-footer ul {
+  display: flex;
+  gap: 20px;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content"
+      "sidebar"
+      "footer";
+  }
+
+  .site-header,
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
