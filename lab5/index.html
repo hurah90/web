@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лаб 5 - Аяллын вэб сайт</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="brand">
+        <h1>Монгол Аялал</h1>
+        <p>Эх орноо танин мэдье</p>
+      </div>
+      <button class="nav-toggle" id="navBtn" type="button" aria-label="Цэс">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#" class="active">Нүүр</a></li>
+          <li><a href="#">Чиглэл</a></li>
+          <li><a href="#">Үнэ</a></li>
+          <li><a href="#">Тухай</a></li>
+          <li><a href="#">Холбоо барих</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h2>Түгээмэл чиглэлүүд</h2>
+      <section class="card-grid">
+        <article class="card">
+          <div class="card-img img-1"></div>
+          <div class="card-body">
+            <h3>Хөвсгөл нуур</h3>
+            <p>Монголын хөх сувд. Байгалийн үзэсгэлэнт газар, 5 хоногийн аялал.</p>
+            <span class="price">449,000₮</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img img-2"></div>
+          <div class="card-body">
+            <h3>Говийн аялал</h3>
+            <p>Хонгорын элс, Баянзаг, Цагаан суврага. 7 хоногийн аялал.</p>
+            <span class="price">620,000₮</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img img-3"></div>
+          <div class="card-body">
+            <h3>Хархорум</h3>
+            <p>Эрдэнэ Зуу хийд, Орхоны хөндий. 3 хоногийн аялал.</p>
+            <span class="price">280,000₮</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img img-4"></div>
+          <div class="card-body">
+            <h3>Тэрэлж</h3>
+            <p>Улаанбаатараас ойрхон амралт, морин аялал. 2 хоног.</p>
+            <span class="price">150,000₮</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img img-5"></div>
+          <div class="card-body">
+            <h3>Алтай Таван Богд</h3>
+            <p>Мөнх цаст уулс, бүргэдчдийн соёл. 8 хоногийн аялал.</p>
+            <span class="price">890,000₮</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img img-6"></div>
+          <div class="card-body">
+            <h3>Дорнод Монгол</h3>
+            <p>Хэрлэн голын сав, тал хээр. 5 хоногийн аялал.</p>
+            <span class="price">520,000₮</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      <section class="widget">
+        <h3>Шинэ мэдээ</h3>
+        <ul>
+          <li><a href="#">Зуны аяллын хямдрал эхэллээ</a></li>
+          <li><a href="#">Шинэ чиглэл нэмэгдлээ</a></li>
+          <li><a href="#">Аяллын зөвлөмж</a></li>
+        </ul>
+      </section>
+      <section class="widget">
+        <h3>Холбоо барих</h3>
+        <p>Утас: 7700-0000</p>
+        <p>И-мэйл: info@mongoltravel.mn</p>
+      </section>
+    </aside>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Монгол Аялал. Бүх эрх хуулиар хамгаалагдсан.</p>
+      <ul>
+        <li><a href="#">Нууцлал</a></li>
+        <li><a href="#">Нөхцөл</a></li>
+        <li><a href="#">Тусламж</a></li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <div class="size-box" id="sizeBox">
+    <ul class="size-menu" id="sizeMenu">
+      <li><button data-w="375">Mobile</button></li>
+      <li><button data-w="768">Tablet</button></li>
+      <li><button data-w="1280">Desktop</button></li>
+    </ul>
+    <button class="size-btn" id="sizeBtn" type="button" aria-label="Options"><i></i><i></i><i></i></button>
+  </div>
+  <div class="stage"><iframe id="preview" title="preview"></iframe></div>
+
+  <script>
+    var navBtn = document.getElementById('navBtn');
+    var mainNav = document.getElementById('mainNav');
+
+    navBtn.onclick = function () {
+      mainNav.classList.toggle('open');
+    };
+
+    var sizeBox = document.getElementById('sizeBox');
+
+    if (window.self !== window.top) {
+      sizeBox.remove();
+    } else {
+      var sizeBtn = document.getElementById('sizeBtn');
+      var sizeMenu = document.getElementById('sizeMenu');
+      var preview = document.getElementById('preview');
+      var options = sizeMenu.querySelectorAll('button');
+
+      sizeBtn.onclick = function (e) {
+        e.stopPropagation();
+        sizeMenu.classList.toggle('open');
+      };
+
+      document.onclick = function () {
+        sizeMenu.classList.remove('open');
+      };
+
+      for (var i = 0; i < options.length; i++) {
+        options[i].onclick = function () {
+          var w = Number(this.dataset.w);
+
+          for (var j = 0; j < options.length; j++) {
+            options[j].classList.remove('on');
+          }
+
+          if (w === 0) {
+            document.body.classList.remove('previewing');
+          } else {
+            if (!preview.getAttribute('src')) {
+              preview.src = location.href.split('#')[0];
+            }
+            preview.style.width = w + 'px';
+            document.body.classList.add('previewing');
+            this.classList.add('on');
+          }
+          sizeMenu.classList.remove('open');
+        };
+      }
+    }
+  </script>
+</body>
+</html>
